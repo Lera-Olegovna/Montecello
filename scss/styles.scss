@@ -1,0 +1,663 @@
+@font-face{
+	font-family: "Gotham Medium Regular";
+	src:url("..//fonts/Gotham Medium Regular.woff") format("truetype");
+	font-style:normal;
+	font-weight: normal;
+}
+@font-face{
+	font-family: "Gotham-Bold";
+	src:url("..//fonts/Gotham-Bold.woff") format("truetype");
+	font-style:normal;
+	font-weight: normal;
+}
+@font-face{
+	font-family:"Gotham-Book";
+	src:url("..//fonts/Gotham-Book.woff") format("truetype");
+	font-style:normal;
+	font-weight: normal;
+}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import 'normalize';
+@import 'mixins';
+@import 'slick';
+
+
+$turquoise:#56b7fe;
+$text-color:#2c4058;
+$white:#fff;
+$light-blue:#24ccf7;
+$blue:#3b83d6;
+$blue-violet:#7c5bf8;
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+	height: 100%;
+}
+
+body {
+	margin: 0 auto;
+	font-family: 'Gotham-Book';
+	font-size: 1.4rem;
+	line-height: 1.6;
+	color: $text-color;
+	min-height: 100%;
+	max-width: 1600px;
+}
+a{
+	text-decoration: none;
+}
+.container {
+	max-width: 1170px;
+	width: 73%;
+	height: 100%;
+	margin: 0 auto;
+	footer &{
+		width: 780px;
+	}
+	
+}
+section{
+	width: 100%;
+	&--gallery{
+		padding-bottom: 220px;
+	}
+}
+a, button, input[type="button"], input[type="submit"] {
+ transition:
+ 			border-color .1s ease-in,
+ 			color .1s ease-in,
+ 			background-color .1s ease-in;
+}
+header, footer{
+	height: 100vh;
+	max-height: 750px;
+ 	background: linear-gradient( to right, $light-blue, $blue-violet);
+}
+footer{
+	height: 520px;
+}
+
+.slider-header{
+	position: relative;
+	width: 100%;
+	max-height: 750px;
+	&__dots{
+		position: absolute;
+		z-index:1;
+ 		padding: 0;
+ 		margin: 0;
+ 		text-align: center;
+	 		.news-block &{
+	 			right: calc(50% - 75px);
+	 			top: 3400px;
+	 		} 
+	 		header &{
+	 			right: 50px;
+ 				bottom: calc(50% - 75px);
+	 		} 
+ 		li{
+ 			list-style:none;
+ 			margin-top: 20px;
+	 			.news-block &{
+	 			display: inline-block;
+	 			margin: 10px;
+	 		} 
+ 		}
+ 		button{
+ 			font-size: 0;
+ 			border: 1px solid $white;
+ 			background-color: transparent;
+ 			display: inline-block;
+ 			padding: 0;
+ 			width: 10px;
+ 			height: 10px;
+ 			border-radius: 50%;
+ 			@include hover{
+ 				background-color:$white;
+ 			}	
+ 		}
+ 	}	
+}
+.slide-header{
+	position: relative;
+	padding: 145px;	
+	width: 100%;
+	height: 100vh;
+	@include flexColumn;
+	justify-content: center;	
+	align-items: center;		
+	@include bgCentreNoRepeat;
+	background-size:cover;
+	outline: 3px solid green;
+
+	h1{
+		font-size: 	8rem;
+		font-family: 'Gotham-Bold';
+		color:$white;
+		text-transform: uppercase;
+		text-align: center;
+			
+	}
+	h3{
+		font-size: 	1.8rem;
+		font-family: 'Gotham-Book';
+		color:$white;
+		text-transform: uppercase;
+		text-align: center;	
+	}
+}
+.header__arrow{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border:1px solid rgba(999, 999, 999, .5);
+	border-radius:50%;
+	font-size: 2rem;
+	line-height: 2;
+	color:rgba(999, 999, 999, .5);
+	text-align: center;
+	vertical-align: middle;
+	padding: 0;
+	position: absolute;
+	background-color: rgba(86, 183, 254, 0);
+	bottom: 5%;
+	right: 50%;
+	z-index:2;
+	transform: rotate(90deg);
+	&:hover,
+	&:focus,
+	&:active{
+		color:$blue;
+		background-color:$white;
+	}	 				
+}
+
+
+
+.menu{
+	max-width: 1170px;
+	left: 0px;
+	height: 150px;
+	width: 74%;
+	position: absolute;
+	top: 0px;
+	left: 13%;
+	z-index:1;
+	padding: 60px 0 40px;
+	@include flexRow;
+}
+.logo{
+	background-image: url('../img/Logo.png');
+	@include bgCentreNoRepeat;
+	background-size: 100%;
+	width: 20%;
+	height: 100%;
+}
+.nav{
+	width: 60%;
+	height: 100%;
+	&__items{
+	@include flexRow;
+	justify-content: space-around;
+	list-style:none;
+	}
+	&__link{
+	text-transform: uppercase;
+	color:$white;	
+		&:before {
+		   content: ' ';
+		   display: inline-block;
+		   width: 7px;
+		   height: 7px;
+		   border-radius: 50%;
+		   border: 1px solid $white;
+		   margin-right: 5px;
+		}
+		&:hover:before {
+			background-color: $white;
+			transition: .3s ease-in;
+			border-color: $white;
+		}
+	}
+}
+
+.socials{
+	width: 20%;
+	&--footer{
+		margin-bottom: 270px;
+	}
+	&__items{
+	@include flexRow;
+	align-content: center;		
+	list-style:none;
+	padding: 0;	
+	margin: 5px auto;
+		li{
+		display: inline-block;
+		width: 30%;	
+		height: 100%;
+		text-align: right;	
+		}
+	}
+	&__link{
+		color:$white;
+		display: inline-block;
+		border:1px solid $white;
+		border-radius:50%;
+		width: 40px; 
+		height: 40px;
+		text-align: center;
+		padding:8px;
+		@include hover{
+			border:1px solid $white;
+ 			background-color:$white;
+			stroke: $blue;
+ 			fill:$blue;
+ 		}
+	}
+}
+
+
+.caption{
+	width: 100%;
+	margin: 0 auto;
+	padding: 80px;
+	h2{
+		display: inline-block;
+		height: 4.4rem;
+		width: 100%;
+		font-size: 4.4rem;
+		font-family: 'Gotham-Bold';
+		color:$text-color;
+		text-align: center;
+		text-transform: uppercase;
+		position: relative;
+		&::before {
+			content:'';
+			display: inline-block;
+			width: 100px;
+			border-top:1px solid $text-color;
+			position: absolute;
+			left: calc(50% - 50px);
+			bottom: 50px;
+		}
+	}
+	.location &{
+		padding: 0;
+	}
+}
+.projects{
+	@include flexRow;
+	flex-wrap: wrap;
+	align-items: bottom;
+	width: 100%;
+	height: 540px;
+	padding-top: 70px;
+	&--reverse{
+		margin-top: 70px;
+	}
+	
+	&__article{
+		@include flexColumn;
+		width: 40%;
+		height: 100%;
+		padding: 60px 0px 30px 0;	
+	}
+	&__title{
+		width: 100%;
+		text-transform: uppercase;
+		font-family: "Gotham-Bold";
+		font-size: 4rem;
+		line-height: 4rem;
+		padding: 0;
+		margin: 0px 0 10px 0;
+	}
+	&__text{
+		width: 100%;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 1.8rem;
+		overflow:hidden;
+		margin: 10px 0;
+	}	
+	&__image{
+		width: 55%;
+		height: 100%;
+	}
+	
+	&__photo{
+		width: 100%;
+		height: 470px;
+		background-image: url('../img/serv-left.jpg');
+		@include bgCentreNoRepeat;
+		background-size: cover;	
+		position: relative;
+		
+		.projects--reverse &{
+		background-image: url('../img/serv-right.jpg');
+		}
+	}
+	&__bg{
+		width: 585px;
+		height: 475px;
+		background-color: $blue;
+		position: absolute;
+		z-index:-1;
+		top: 900px;
+		left: 0;
+		.projects--reverse & {
+			top: 1510px;
+			right: 0;
+			left: 755px;
+			background-color: #7E5AFF;
+		}		
+	}
+	h3{
+		text-transform: uppercase;
+		padding: 0;
+		margin: 10px 0;
+	}
+	a{
+		font-family: 'Open Sans', sans-serif;
+		font-size:1.4rem;
+		font-style: italic;
+	}
+}
+
+.btn{
+	width: 200px;
+	height: 50px;
+	border:1px solid $text-color;
+	color:$text-color;
+	background-color: $white;
+	text-transform: uppercase;
+	font-family: 'Gotham-Book';
+	font-size: 1.4rem;
+	&--centre{
+		margin-left: calc(50% - 100px);
+		margin-top: 60px;
+		margin-bottom: 160px;
+	}
+	@include hover {
+		color:$white;
+		background-color: $text-color;
+	}
+	
+}
+
+
+.news-block{
+	width: 100%;
+	background: linear-gradient( to right, $blue, $light-blue);
+	padding-bottom: 210px;
+	.bg{
+		background-image: url('../img/news-bg.png');
+		background-repeat: no-repeat;
+	}
+	h2{
+		color:$white;
+		position: relative;
+		&::before {
+			border-top:1px solid $light-blue;
+		}
+	}
+	.news{
+		&__item{
+			margin-left: 2vh;
+			height: 525px;
+			@include flexColumn;
+		}
+		&__img{
+		display: inline-block;
+		width: 100%;
+		height: 50%;
+		overflow:hidden;
+		
+		}
+		&__info{
+		width: 100%;
+		height: 50%;
+		@include flexColumn;
+		padding: 40px 20px 30px;
+		background-color: $white;
+		}
+		&__title{
+			color:$text-color;
+			font-family: 'Gotham-Bold';
+			font-size: 2.2rem;
+			text-transform: uppercase;
+			margin: 0;
+			max-height: 6rem;
+			display: -webkit-box;
+  					-webkit-box-orient: vertical;
+					-webkit-line-clamp: 2;
+			overflow:hidden;
+			text-overflow: ellipsis;
+			@include hover{
+				color:$blue;
+			}
+		}
+		&__text{
+			margin: 0px;
+			display: inline-block;
+			max-height: 4rem;
+			font-family: 'Open Sans', sans-serif;
+			font-size:1.4rem;
+			display: -webkit-box;
+  					-webkit-box-orient: vertical;
+					-webkit-line-clamp: 2;
+			overflow:hidden;
+			text-overflow: ellipsis;
+		}
+		&__author{
+			margin-top: 10px;
+			width: 100%;
+			@include flexRow;
+		}
+		&__photo{
+			width: 55px;
+			height: 55px;
+			border:1px solid $white;
+			border-radius:50%;
+			overflow:hidden;	
+		}
+		&__person{
+			width: calc(100% - 70px);
+		}
+		&__name{
+			text-transform: uppercase;
+		}
+		&__data{
+			font-family: 'Gotham-Book';
+			font-size: 1.4rem;
+			color:$light-blue;
+			padding-top: 5px;
+		}
+	}
+}
+.slider-news{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	&__arrow{
+ 	 	position: absolute;
+ 		top:50%;
+ 		width: 40px;
+		height: 40px;
+		font-size: 2rem;
+		color:rgba(999, 999, 999, .5);
+		line-height: 2;
+		padding: 0;
+ 		border:1px solid rgba(999, 999, 999, .5);
+		background-color: rgba(86, 183, 254, 0);
+ 		border-radius:50%;
+ 		background-position: center;
+ 		background-repeat: no-repeat;
+ 		opacity: .6;
+ 		z-index:1;
+ 		outline:none;
+ 		&--next{
+ 			right: -100px;
+ 			background-color: rgba(39, 194, 245, 1);
+ 			
+ 		}
+ 		&--prev{
+ 			left: -100px;
+ 			transform:rotate(180deg);
+ 			background-color: rgba(61, 128, 212, 1);
+ 		}
+ 		&:hover,
+ 		&:focus,
+ 		&:active{
+ 			background-color:$white;
+ 			color:$light-blue;
+ 		}
+ 	}
+ 	&__dots{
+		position: absolute;
+		z-index:1;
+		bottom: calc(50% - 75px);
+		right: calc(50% - 75px);
+		top:100%;
+ 		padding: 0;
+ 		margin: 0;
+ 		text-align: center;
+ 		li{
+ 			list-style:none;
+ 			display: inline-block;	
+ 			margin: 20px 10px 0px 10px;
+ 		
+ 		}
+ 		button{
+ 			font-size: 0;
+ 			border: 1px solid $white;
+ 			background-color: transparent;
+ 			display: inline-block;
+ 			padding: 0;
+ 			width: 10px;
+ 			height: 10px;
+ 			border-radius: 50%;
+ 			@include hover{
+ 				background-color:$white;
+ 			}	
+ 		}
+ 	}	
+}
+.gallery{
+	width: 100%;	
+	@include flexRow;
+	flex-wrap: wrap;
+	&__column{
+
+		&--half{
+			width: 49%;
+			margin: 0.5% 0;
+			overflow: hidden;	
+		}
+		&--quater{
+			width: 24.5%;
+			margin: 0.5%;
+			overflow: hidden;	
+		}
+	}
+}
+.location{
+	background-color:$blue;
+	padding: 0;
+	position: relative;
+}
+#map{
+	width: 100%;
+	height: 100vh;
+}
+.contacts{
+	position: absolute;
+	margin: 0 auto;
+	top:45%;
+	left: calc(50% - 380px);
+	z-index:2;
+	width: 760px;
+	padding: 70px;
+	background-color: $white;
+	&__flex{
+		@include flexRow;
+		align-items: center;
+	}
+	&__adds{
+		width: 48%;
+		list-style: none;
+		padding: 0;
+		li{
+			padding: 15px 0;
+		}
+		a{
+			text-decoration: none;
+			font-family: 'Gotham-Book';
+			font-size: 1.8rem;
+			color:$text-color;
+		}
+		svg{
+			fill: $blue-violet;
+		}
+
+	}
+	 &__form {
+    	width: 48%;
+    	@include flexColumn;
+	    align-items:end;
+    	font-family: 'Gotham-Book';
+		font-size: 1.8rem;
+	    input {
+	    	width: 100%;
+	    	border: none;
+    		border-bottom: 1px solid $text-color;
+    		padding: 20px 0;
+    		outline: none;
+		}
+		input[type="submit"] {
+			margin-top: 30px;
+			margin-left: 145px;
+		    width: 150px;
+		    padding:15px;
+		    border: 1px solid $text-color;
+		    text-transform: uppercase;
+		    background-color: transparent;
+		    &:hover,
+		    &:focus,
+		    &:active {
+		    	color:$white;
+				background-color: $text-color;
+		    }
+		}  
+    }
+}
+.footer-contain{
+	padding-top: 200px;
+	width: 100%;
+	&__row{
+	height: 120px;
+	@include flexRow;
+	}
+	.logo{
+		height: 50px;
+	}
+}
+.copyright{
+	color:$white;
+	width: 70%;
+	margin: 0;
+	a{
+		color:$white;
+	}
+}
+
+.copyright-border{
+	border-left:1px solid $white;
+	padding-left: 30px;
+	margin-left: 55px;
+	display: inline-block;
+	
+}
